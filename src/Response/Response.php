@@ -40,7 +40,7 @@ class Response
      */
     public function isSuccessful(): bool
     {
-        return true;
+        return $this->getResponseCode() >= 1 && $this->getResponseCode() <= 10;
     }
 
     /**
@@ -49,5 +49,47 @@ class Response
     public function isValid(): bool
     {
         return true;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResponseCode(): int
+    {
+        return $this->data['ResponseCode'];
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getRequestId(): string
+    {
+        return $this->data['RequestId'];
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getResponseMessage(): string
+    {
+        return $this->data['ResponseMessage'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseDisplayText(): string
+    {
+        return $this->data['ResponseDisplayText'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getSignature(): string
+    {
+        return $this->data['Signature'];
     }
 }
