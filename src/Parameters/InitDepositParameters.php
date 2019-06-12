@@ -9,8 +9,35 @@ class InitDepositParameters extends AbstractParameterBag
      */
     public function toArray(): array
     {
-        // TODO: Implement toArray() method.
-        return [];
+        return array_intersect_key($this->all(), array_flip([
+            'CustomerId',
+            'CustomerGroups',
+            'MerchantReference',
+            'Channel',
+            'FirstName',
+            'LastName',
+            'EmailAddress',
+            'BirthDate',
+            'PaymentMethod',
+            'Amount',
+            'Currency',
+            'CountryCode',
+            'IpAddress',
+            'RegistrationIpAddress',
+            'RegistrationDate',
+            'Address',
+            'City',
+            'State',
+            'PhoneNumber',
+            'PostalCode',
+            'SuccessUrl',
+            'FailUrl',
+            'CallbackUrl',
+            'CancelUrl',
+            'AllowPaySolChange',
+            'MerchantId',
+            'Language',
+        ]));
     }
 
     /**
