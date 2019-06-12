@@ -9,7 +9,7 @@ class DepositResponse extends Response
      */
     public function getTransactionCode(): string
     {
-        return $this->data['TransactionCode'] ?? null;
+        return $this->data['TransactionCode'];
     }
 
     /**
@@ -17,15 +17,7 @@ class DepositResponse extends Response
      */
     public function getCashierUrl(): string
     {
-        return $this->data['CashierUrl'] ?? null;
-    }
-
-    /**
-     * @return string
-     */
-    public function getChecksum(): string
-    {
-        return $this->data['Checksum'] ?? null;
+        return $this->data['CashierUrl'];
     }
 
     /**
@@ -33,7 +25,7 @@ class DepositResponse extends Response
      */
     public function getSignature(): string
     {
-        return $this->data['Signature'] ?? null;
+        return $this->data['Signature'];
     }
 
     /**
@@ -41,7 +33,7 @@ class DepositResponse extends Response
      */
     public function getResponseMessage(): string
     {
-        return $this->data['ResponseMessage'] ?? null;
+        return $this->data['ResponseMessage'];
     }
 
     /**
@@ -49,7 +41,7 @@ class DepositResponse extends Response
      */
     public function getResponseDisplayText(): string
     {
-        return $this->data['ResponseDisplayText'] ?? null;
+        return $this->data['ResponseDisplayText'];
     }
 
     /**
@@ -57,6 +49,14 @@ class DepositResponse extends Response
      */
     public function getResponseCode(): int
     {
-        return $this->data['ResponseCode'] ?? null;
+        return $this->data['ResponseCode'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestId(): string
+    {
+        return $this->data['RequestId'];
     }
 }
