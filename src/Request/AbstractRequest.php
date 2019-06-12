@@ -3,7 +3,10 @@
 namespace Maslauskas\MoneyMatrixClient\Request;
 
 use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
+use Maslauskas\MoneyMatrixClient\Parameters\AbstractParameterBag;
 use Maslauskas\MoneyMatrixClient\Response\Response;
+use Maslauskas\MoneyMatrixClient\SignatureGenerator;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 abstract class AbstractRequest implements RequestInterface
 {
@@ -23,11 +26,6 @@ abstract class AbstractRequest implements RequestInterface
     protected $isLive = true;
 
     /**
-     * @var array
-     */
-    protected $data = [];
-
-    /**
      * @var ClientInterface
      */
     private $httpClient;
@@ -38,21 +36,30 @@ abstract class AbstractRequest implements RequestInterface
     private $response;
 
     /**
+     * @var ParameterBag
+     */
+    private $parameters;
+    /**
+     * @var SignatureGenerator
+     */
+    private $signatureGenerator;
+
+    /**
      * AbstractRequest constructor.
      *
      * @param ClientInterface $httpClient
+     * @param SignatureGenerator $signatureGenerator
+     * @param AbstractParameterBag $parameters
      */
-    public function __construct(ClientInterface $httpClient)
+    public function __construct(
+        ClientInterface $httpClient,
+        SignatureGenerator $signatureGenerator,
+        AbstractParameterBag $parameters
+    )
     {
         $this->httpClient = $httpClient;
-    }
-
-    /**
-     * @return array
-     */
-    public function getData(): array
-    {
-        return $this->data;
+        $this->parameters = $parameters;
+        $this->signatureGenerator = $signatureGenerator;
     }
 
     /**
@@ -88,7 +95,7 @@ abstract class AbstractRequest implements RequestInterface
      */
     public function send()
     {
-        $data = $this->getData();
+        $data = $this->getRequestParameters();
 
         return $this->sendData($data);
     }
@@ -105,6 +112,22 @@ abstract class AbstractRequest implements RequestInterface
         return 'POST';
     }
 
+    /**
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function getParameter(string $key)
+    {
+        return $this->parameters->get($key);
+    }
+
+    /**
+     * @param $data
+     * @param array $headers
+     *
+     * @return Response
+     */
     abstract protected function createResponse($data, array $headers = []): Response;
 
     /**
@@ -120,6 +143,17 @@ abstract class AbstractRequest implements RequestInterface
 
         $httpResponse = $this->httpClient->request($this->getHttpMethod(), $this->getEndpoint(), $headers, $data);
 
-        return $this->response = $this->createResponse($httpResponse->getBody()->getContents(), $httpResponse->getHeaders());;
+        return $this->response = $this->createResponse($httpResponse->getBody()->getContents(), $httpResponse->getHeaders());
+    }
+
+    /**
+     * @return array
+     */
+    private function getRequestParameters()
+    {
+        return array_merge(
+            $this->parameters->toArray(),
+            ['Signature' => $this->signatureGenerator->generate($this->parameters->getSignatureParams())]
+        );
     }
 }

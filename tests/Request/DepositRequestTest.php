@@ -2,12 +2,14 @@
 
 namespace Tests\Request;
 
-use function GuzzleHttp\Psr7\parse_response;
 use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
+use Maslauskas\MoneyMatrixClient\Parameters\AbstractParameterBag;
 use Maslauskas\MoneyMatrixClient\Request\DepositRequest;
 use Maslauskas\MoneyMatrixClient\Response\DepositResponse;
+use Maslauskas\MoneyMatrixClient\SignatureGenerator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use function GuzzleHttp\Psr7\parse_response;
 
 class DepositRequestTest extends TestCase
 {
@@ -19,14 +21,14 @@ class DepositRequestTest extends TestCase
      * @var ClientInterface|MockObject
      */
     private $httpClient;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->httpClient = $this->createMock(ClientInterface::class);
-        $this->request = new DepositRequest($this->httpClient);
-    }
+    /**
+     * @var AbstractParameterBag|MockObject
+     */
+    private $parameters;
+    /**
+     * @var SignatureGenerator|MockObject
+     */
+    private $signatureGenerator;
 
     /**
      * @dataProvider getEndpointDataProvider
@@ -63,5 +65,16 @@ class DepositRequestTest extends TestCase
         $this->assertTrue($response->isSuccessful());
         $this->assertTrue($response->isValid());
         $this->assertSame("https://cashier-stage.moneymatrix.com/Cashier/Deposit?nonce=af30ea908d0311e9b1c33a3031346235000006", $response->getCashierUrl());
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->httpClient = $this->createMock(ClientInterface::class);
+        $this->signatureGenerator = $this->createMock(SignatureGenerator::class);
+        $this->parameters = $this->createMock(AbstractParameterBag::class);
+
+        $this->request = new DepositRequest($this->httpClient, $this->signatureGenerator, $this->parameters);
     }
 }
