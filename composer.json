@@ -1,5 +1,5 @@
 {
-    "name": "maslauskas/moneymatrix_client",
+    "name": "maslauskas/moneymatrix",
     "description": "A PHP Client for MoneyMatrix e-wallet",
     "type": "library",
     "license": "MIT",
