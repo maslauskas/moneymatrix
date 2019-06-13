@@ -2,7 +2,7 @@
 
 namespace Maslauskas\MoneyMatrixClient\Client;
 
-use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 interface ClientInterface
 {
@@ -12,7 +12,7 @@ interface ClientInterface
      * @param array $headers
      * @param array $data
      *
-     * @return Response
+     * @return ResponseInterface
      */
-    public function request($method, $url, $headers = [], $data = []): Response;
+    public function request($method, $url, $headers = [], $data = []): ResponseInterface;
 }
