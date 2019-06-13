@@ -1,9 +1,9 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Request;
+namespace Maslauskas\MoneyMatrix\Request;
 
-use Maslauskas\MoneyMatrixClient\Response\DepositResponse;
-use Maslauskas\MoneyMatrixClient\Response\Response;
+use Maslauskas\MoneyMatrix\Response\DepositResponse;
+use Maslauskas\MoneyMatrix\Response\Response;
 
 class DepositRequest extends AbstractRequest
 {

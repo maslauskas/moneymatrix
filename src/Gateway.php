@@ -1,10 +1,10 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient;
+namespace Maslauskas\MoneyMatrix;
 
-use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
-use Maslauskas\MoneyMatrixClient\Parameters\InitDepositParameters;
-use Maslauskas\MoneyMatrixClient\Request\DepositRequest;
+use Maslauskas\MoneyMatrix\Client\ClientInterface;
+use Maslauskas\MoneyMatrix\Parameters\InitDepositParameters;
+use Maslauskas\MoneyMatrix\Request\DepositRequest;
 
 class Gateway
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Response;
+namespace Maslauskas\MoneyMatrix\Response;
 
 class DepositResponse extends Response
 {

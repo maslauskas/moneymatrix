@@ -2,11 +2,11 @@
 
 namespace Tests\Request;
 
-use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
-use Maslauskas\MoneyMatrixClient\Parameters\AbstractParameterBag;
-use Maslauskas\MoneyMatrixClient\Request\DepositRequest;
-use Maslauskas\MoneyMatrixClient\Response\DepositResponse;
-use Maslauskas\MoneyMatrixClient\SignatureGenerator;
+use Maslauskas\MoneyMatrix\Client\ClientInterface;
+use Maslauskas\MoneyMatrix\Parameters\AbstractParameterBag;
+use Maslauskas\MoneyMatrix\Request\DepositRequest;
+use Maslauskas\MoneyMatrix\Response\DepositResponse;
+use Maslauskas\MoneyMatrix\SignatureGenerator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use function GuzzleHttp\Psr7\parse_response;

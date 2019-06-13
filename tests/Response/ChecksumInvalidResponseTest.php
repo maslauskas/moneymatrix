@@ -3,8 +3,8 @@
 namespace Tests\Response;
 
 use function GuzzleHttp\Psr7\parse_response;
-use Maslauskas\MoneyMatrixClient\Request\RequestInterface;
-use Maslauskas\MoneyMatrixClient\Response\Response;
+use Maslauskas\MoneyMatrix\Request\RequestInterface;
+use Maslauskas\MoneyMatrix\Response\Response;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

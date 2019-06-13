@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Maslauskas\MoneyMatrixClient\SignatureGenerator;
+use Maslauskas\MoneyMatrix\SignatureGenerator;
 use PHPUnit\Framework\TestCase;
 
 class SignatureGeneratorTest extends TestCase

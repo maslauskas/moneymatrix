@@ -1,6 +1,6 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Parameters;
+namespace Maslauskas\MoneyMatrix\Parameters;
 
 class InitDepositParameters extends AbstractParameterBag
 {

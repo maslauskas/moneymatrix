@@ -1,8 +1,8 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Response;
+namespace Maslauskas\MoneyMatrix\Response;
 
-use Maslauskas\MoneyMatrixClient\Request\RequestInterface;
+use Maslauskas\MoneyMatrix\Request\RequestInterface;
 
 class Response
 {

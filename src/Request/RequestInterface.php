@@ -1,6 +1,6 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Request;
+namespace Maslauskas\MoneyMatrix\Request;
 
 interface RequestInterface
 {

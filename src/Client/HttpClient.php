@@ -1,6 +1,6 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Client;
+namespace Maslauskas\MoneyMatrix\Client;
 
 use Psr\Http\Message\ResponseInterface;
 

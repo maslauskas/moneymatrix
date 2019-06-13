@@ -1,11 +1,11 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient\Request;
+namespace Maslauskas\MoneyMatrix\Request;
 
-use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
-use Maslauskas\MoneyMatrixClient\Parameters\AbstractParameterBag;
-use Maslauskas\MoneyMatrixClient\Response\Response;
-use Maslauskas\MoneyMatrixClient\SignatureGenerator;
+use Maslauskas\MoneyMatrix\Client\ClientInterface;
+use Maslauskas\MoneyMatrix\Parameters\AbstractParameterBag;
+use Maslauskas\MoneyMatrix\Response\Response;
+use Maslauskas\MoneyMatrix\SignatureGenerator;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 abstract class AbstractRequest implements RequestInterface

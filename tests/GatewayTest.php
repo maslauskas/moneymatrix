@@ -2,10 +2,10 @@
 
 namespace Tests;
 
-use Maslauskas\MoneyMatrixClient\Client\ClientInterface;
-use Maslauskas\MoneyMatrixClient\Gateway;
-use Maslauskas\MoneyMatrixClient\Request\DepositRequest;
-use Maslauskas\MoneyMatrixClient\SignatureGenerator;
+use Maslauskas\MoneyMatrix\Client\ClientInterface;
+use Maslauskas\MoneyMatrix\Gateway;
+use Maslauskas\MoneyMatrix\Request\DepositRequest;
+use Maslauskas\MoneyMatrix\SignatureGenerator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

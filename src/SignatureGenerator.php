@@ -1,6 +1,6 @@
 <?php
 
-namespace Maslauskas\MoneyMatrixClient;
+namespace Maslauskas\MoneyMatrix;
 
 class SignatureGenerator
 {
