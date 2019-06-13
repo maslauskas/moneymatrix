@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Response;
-
 use Maslauskas\MoneyMatrix\Request\RequestInterface;
 use Maslauskas\MoneyMatrix\Response\DepositResponse;
 use PHPUnit\Framework\MockObject\MockObject;

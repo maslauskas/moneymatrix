@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Response;
-
 use function GuzzleHttp\Psr7\parse_response;
 use Maslauskas\MoneyMatrix\Request\RequestInterface;
 use Maslauskas\MoneyMatrix\Response\Response;

@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests\Request;
-
 use Maslauskas\MoneyMatrix\Client\ClientInterface;
 use Maslauskas\MoneyMatrix\Parameters\AbstractParameterBag;
 use Maslauskas\MoneyMatrix\Request\DepositRequest;

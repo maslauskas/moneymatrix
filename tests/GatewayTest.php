@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests;
-
 use Maslauskas\MoneyMatrix\Client\ClientInterface;
 use Maslauskas\MoneyMatrix\Gateway;
 use Maslauskas\MoneyMatrix\Request\DepositRequest;

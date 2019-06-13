@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests;
-
 use Maslauskas\MoneyMatrix\SignatureGenerator;
 use PHPUnit\Framework\TestCase;
 
