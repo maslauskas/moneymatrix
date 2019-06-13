@@ -49,7 +49,7 @@ class InitDepositParameters extends AbstractParameterBag
             'MerchantReference' => $this->get('MerchantReference'),
             'PaymentMethod' => $this->get('PaymentMethod'),
             'CustomerId' => $this->get('CustomerId'),
-            'Amount' => $this->get('Amount'),
+            'Amount' => number_format($this->get('Amount'), 2),
             'Currency' => $this->get('Currency'),
         ];
     }

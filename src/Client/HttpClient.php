@@ -2,6 +2,7 @@
 
 namespace Maslauskas\MoneyMatrix\Client;
 
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 class HttpClient implements ClientInterface
@@ -28,15 +29,13 @@ class HttpClient implements ClientInterface
      * @param array $data
      *
      * @return ResponseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function request($method, $url, $headers = [], $data = []): ResponseInterface
     {
-        $body = $method == 'post' ? 'form-params' : 'data';
-
         return $this->client->request($method, $url, [
             'headers' => $headers,
-            $body => $data,
+            'json' => $data,
         ]);
     }
 }
