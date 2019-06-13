@@ -32,9 +32,11 @@ class HttpClient implements ClientInterface
      */
     public function request($method, $url, $headers = [], $data = []): ResponseInterface
     {
+        $body = $method == 'post' ? 'form-params' : 'data';
+
         return $this->client->request($method, $url, [
             'headers' => $headers,
-            'body' => $data,
+            $body => $data,
         ]);
     }
 }
